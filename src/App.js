@@ -1,8 +1,9 @@
+const { Bill } = require("./Component/Bill/Bill");
 
 function App() {
   return (
     <div className="App">
-    Restaurent Bill  
+    <Bill />
     </div>
   );
 }
