@@ -1,7 +1,7 @@
 .bill {
   color: black;
   width: 500px;
-  height: 680px;
+  height: 700px;
   margin: auto;
   margin-top: 50px;
   background: cadetblue;
@@ -11,10 +11,10 @@
 
 .count-bill {
   width: 80%;
-  height: 230px;
+  height: 270px;
   margin: 25px;
   padding: 25px;
-  font-size: 18px;
+  font-size: 20px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 1px 2px 1px 2px grey;
@@ -22,27 +22,53 @@
 
 .split-bill {
   width: 80%;
-  height: 150px;
+  height: 180px;
   margin: 25px;
   margin-top: 35px;
   padding: 25px;
-  font-size: 18px;
+  font-size: 20px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 1px 2px 1px 2px grey;
 }
 
-h1 {
-  text-align: center;
-  padding-top: 40px;
-  padding-bottom: 10px;
+.count-bill p {
+  margin: 2px;
 }
 
-p {
-  margin: 3px;
+.split-bill p {
+  margin: 5px;
 }
+
+.select-tip p {
+  margin-bottom: 15px;
+}
+
+.share-bill p {
+  margin-bottom: 15px;
+}
+
+.tip,
+.total,
+.s-bill,
+.s-tip {
+  display: flex;
+  padding-right: 50px;
+  justify-content: space-between;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 25px;
+}
+
 input {
   width: 250px;
   height: 35px;
   margin-left: 80px;
+}
+
+#total {
+  font-weight: bold;
+  margin: 1px;
 }
