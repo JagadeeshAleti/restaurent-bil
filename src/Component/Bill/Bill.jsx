@@ -4,59 +4,76 @@ import "./style.css"
 
 export class Bill extends React.Component {
     state = {
-        total: 0
+        bill:0,
+        tip: 0,
+        total: 0,
+        eachBill: 0,
+        splitBill: 0,
+        noOfPeople:1,
     }
-    disaplyBill = (event) => {
-        this.setState({total:event.target.value})
+
+    onBillChange = (event) => {
+        var totalBill = parseInt(event.target.value) + parseInt(this.state.tip)
+        this.setState({
+            bill: parseInt(event.target.value), 
+            total: totalBill,
+            eachBill: totalBill/this.state.noOfPeople,
+        })
     }
-    
+
+    onTipChange = (val) => {
+        const tip= parseInt((this.state.bill/100)*val)
+        const total = parseInt(this.state.bill+tip)
+        this.setState({
+            tip: tip,
+            eachBill: total/this.state.noOfPeople,
+            splitBill: tip/this.state.noOfPeople,
+            total: total,
+        })
+    }
+
+    onPeopleChange = (val) => {
+        this.setState({
+            eachBill: this.state.total/val,
+            splitBill: this.state.tip/val  ,
+            noOfPeople: val,          
+        })
+    }
     render() {
         return (
             <div class='bill'>
                 <h1>Quick Tip</h1>    
                 <div class='count-bill'>
-                    <p> Bill <input onChange={this.disaplyBill} placeholder='Your Bill'/> </p>
-                    
-                    <br></br>
-
+                    <div class='main-bill'>
+                        <p class='bil-input'> Bill</p>
+                        <input type='number' onChange={this.onBillChange} placeholder='Your Bill'/>
+                    </div>
                     <div class='select-tip'>
                         <p>Select Tip </p>
-                        <SliderComponent defaultValue={0} step={10} max={100}/>
+                        <SliderComponent onSliderChange={this.onTipChange} defaultValue={0} step={5} max={100}/>
                     </div>
-                    
-                    <br></br>
-                    
                     <div class='tip'>
                         <p>Tip</p>
-                        <span id='tip-bill'></span>
+                        <span>{this.state.tip}</span>
                     </div>
-                    
-                    <br></br> <hr></hr> 
-                    
                     <div class='total'>
                         <p>Total</p>
-                        <span id='total-bill'>{this.state.total}</span>
+                        <span>{this.state.total}</span>
                     </div>
-                    
                 </div>
  
                 <div class='split-bill'>
                     <div class='share-bill'>
                         <p>Split</p>
-                        <SliderComponent defaultValue={1} step={1} max={10}/>
-                    </div>
-                    <br></br>
-                    
+                        <SliderComponent onSliderChange={this.onPeopleChange} defaultValue={1} step={1} max={10} min={1}/>
+                    </div>                    
                     <div class='s-bill'>
                         <p>Bill each</p>
-                        <span id='each-bill'></span>
+                        <span>{this.state.eachBill}</span>
                     </div>
-                    
-                    <br></br>
-                    
                     <div class='s-tip'>
                         <p>Split each</p>
-                        <span id='each-tip'></span>
+                        <span>{this.state.splitBill}</span>
                     </div>
                 </div>            
             </div>

@@ -6,8 +6,8 @@ export class SliderComponent extends React.Component {
         return(
             <div>
                 <Slider 
-                    onChange={(event,val) => {
-                        console.log(val)
+                    onChange={(_,val) => {
+                        this.props.onSliderChange(val)
                     }}
                     defaultValue={this.props.defaultValue}
                     aria-labelledby="discrete-slider-small-steps"
