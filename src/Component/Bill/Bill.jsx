@@ -14,8 +14,8 @@ export class Bill extends React.Component {
     }
 
     onBillChange = (event) => {
-        var totalBill = parseInt(event.target.value) + parseInt(this.state.tip)
         const tip = (parseInt(event.target.value)/100)*parseInt(this.state.tipPercent);
+        var totalBill = parseInt(event.target.value) + parseInt(tip)
         this.setState({
             tip: tip,
             bill: parseInt(event.target.value), 
