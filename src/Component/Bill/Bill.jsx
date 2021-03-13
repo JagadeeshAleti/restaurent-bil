@@ -21,6 +21,7 @@ export class Bill extends React.Component {
             bill: parseInt(event.target.value), 
             total: totalBill,
             eachBill: totalBill/this.state.noOfPeople,
+            splitBill: tip/this.state.noOfPeople
         })
     }
 
@@ -53,7 +54,11 @@ export class Bill extends React.Component {
                         <input type='number' onChange={this.onBillChange} placeholder='Your Bill'/>
                     </div>
                     <div class='select-tip'>
-                        <p>Select Tip </p>
+                        <div class='tip-percent'>
+                            <p>Select Tip </p>
+                            <span>{this.state.tipPercent}%</span>
+                        </div>
+                        
                         <SliderComponent onSliderChange={this.onTipChange} defaultValue={0} step={5} max={100}/>
                     </div>
                     <div class='tip'>
@@ -68,7 +73,11 @@ export class Bill extends React.Component {
  
                 <div class='split-bill'>
                     <div class='share-bill'>
-                        <p>Split</p>
+                        <div class='people'>
+                            <p>Split</p>
+                            <span>{this.state.noOfPeople} Person</span>
+                        </div>
+
                         <SliderComponent onSliderChange={this.onPeopleChange} defaultValue={1} step={1} max={10} min={1}/>
                     </div>                    
                     <div class='s-bill'>

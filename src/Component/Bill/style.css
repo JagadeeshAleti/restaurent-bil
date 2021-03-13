@@ -1,9 +1,10 @@
 .bill {
   color: black;
   width: 500px;
-  height: 700px;
+  height: 690px;
   margin: auto;
   margin-top: 50px;
+  padding-top: 0px;
   background: cadetblue;
   border-radius: 30px;
   box-shadow: 3px 3px 3px 3px grey;
@@ -16,20 +17,20 @@
   padding: 25px;
   padding-top: 20px;
   font-size: 20px;
-  background-color: white;
   border-radius: 10px;
+  background-color: lightgrey;
   box-shadow: 1px 2px 1px 2px grey;
 }
 
 .split-bill {
   width: 82%;
-  height: 190px;
+  height: 210px;
   margin: 25px;
   margin-top: 35px;
   padding: 20px;
   padding-top: 5px;
   font-size: 20px;
-  background-color: white;
+  background-color: lightgray;
   border-radius: 10px;
   box-shadow: 1px 2px 1px 2px grey;
 }
@@ -43,11 +44,7 @@
 }
 
 .select-tip p {
-  margin-bottom: 10px;
-}
-
-.share-bill p {
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 
 .main-bill {
@@ -65,6 +62,13 @@
   display: flex;
   padding-right: 15px;
   justify-content: space-between;
+}
+
+.tip-percent,
+.people {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 0px;
 }
 
 .tip {
